@@ -102,8 +102,9 @@ Driving Charlie Clark (44): strength of support: 75, likelihood: 75, impact: 1.0
 # The last "show-impact", which is called after all voters have already voted, should not output anything. 
 # > Q4. For the show-impact function should we show all voters including ones that have already voted? Or just the voters that have not voted yet.
 # > A4. If a voter votes, they should be removed from all the data structures and so the ones who already voted should NOT be shown for show-impact.
-
-
+#
+# Reason for "10%%" Instead of "%" in "Voting likelihood of Bob Brown decreased by 10%%."
+# > In printf, % is a format specifier (e.g., %d, %s). To print a literal %, use %%.
 
 
 # INTERACTION
