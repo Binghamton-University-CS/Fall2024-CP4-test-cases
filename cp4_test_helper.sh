@@ -94,7 +94,7 @@ Support from Alice Adams increased by 20 strength points.
 Bob Brown (20): strength of support: 95, likelihood: 75, impact: 1.27
 Charlie Clark (44): strength of support: 75, likelihood: 75, impact: 1.00
 Alice Adams (45); strength of support: 95, likelihood: 75, impact: 1.27
-Voting likelihood of Bob Brown decreased by 10%.
+Voting likelihood of Bob Brown decreased by 10%%.
 Driving Bob Brown (20): strength of support: 95, likelihood: 67.5, impact: 1.41
 Driving Alice Adams (45): strength of support: 95, likelihood: 75, impact: 1.27
 Driving Charlie Clark (44): strength of support: 75, likelihood: 75, impact: 1.00
@@ -109,9 +109,8 @@ Driving Charlie Clark (44): strength of support: 75, likelihood: 75, impact: 1.0
 # INTERACTION
 clear 
 expect interaction.exp "$1" "${tests[$2]}" 2>&1
+
 printf "\n\n--------- EXPECTED OUTPUTS (Don't have to be an exact match) --------- \n\n${expected_outputs[$2]}\n\n\n"
-
-
 exit 0
 
 
