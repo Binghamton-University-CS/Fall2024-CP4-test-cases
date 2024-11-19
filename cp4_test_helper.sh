@@ -29,7 +29,7 @@ support Renolds Ryan 25
 quit
 "
 
-# Test-case 2 : Listen, favorite, and show listen time
+# Test-case 2 : voter, voted, and support
 tests[2]="
 voter Lai Tulsi 16
 voter Renolds Ryan 45
@@ -39,6 +39,23 @@ voted Bird Earl 87
 support Renolds Ryan 25
 quit
 "
+
+# Test-case 3 : support, reduce-likelihood, show-impact, chauffeur
+tests[3]="
+voter Brown Bob 20
+voter Adams Alice 45
+voter Clark Charlie 44
+support Brown Bob 20
+support Adams Alice 20
+show-impact
+reduce-likelihood Brown Bob 10
+chauffeur
+chauffeur
+chauffeur
+show-impact
+quit
+"
+
 
 # ================================================================================================
 # Expected outputs of above test-commands
@@ -64,6 +81,28 @@ Voter Earl Bird, age 87, voted
 Earl Bird already voted
 Support from Ryan Renolds increased by 25 strength points
 "
+
+
+expected_outputs[3]="
+[ Test-case 3 : support, reduce-likelihood, show-impact, chauffeur ]
+
+New voter Bob Brown, age 20, added
+New voter Alice Adams, age 45, added
+New voter Charlie Clark, age 44, added
+Support from Bob Brown increased by 20 strength points.
+Support from Alice Adams increased by 20 strength points.
+Bob Brown (20): strength of support: 95, likelihood: 75, impact: 1.27
+Charlie Clark (44): strength of support: 75, likelihood: 75, impact: 1.00
+Alice Adams (45); strength of support: 95, likelihood: 75, impact: 1.27
+Voting likelihood of Bob Brown decreased by 10%.
+Driving Bob Brown (20): strength of support: 95, likelihood: 67.5, impact: 1.41
+Driving Alice Adams (45): strength of support: 95, likelihood: 75, impact: 1.27
+Driving Charlie Clark (44): strength of support: 75, likelihood: 75, impact: 1.00
+"
+# The last "show-impact", which is called after all voters have already voted, should not output anything. 
+# > Q4. For the show-impact function should we show all voters including ones that have already voted? Or just the voters that have not voted yet.
+# > A4. If a voter votes, they should be removed from all the data structures and so the ones who already voted should NOT be shown for show-impact.
+
 
 
 
